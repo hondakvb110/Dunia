@@ -25,7 +25,7 @@ Skala kecerdasan memakai angka 1–5, dengan 1 paling cerdas:
 - Manusia dapat berjodoh dengan semua bangsa.
 - Perkawinan elf atau goblin dengan bangsa lain secara biologis mungkin di dunia cerita ini, tetapi tabu sosial menurunkan peluang hubungan secara signifikan.
 - Pasangan lelaki manusia + perempuan centaur mendapat peluang hubungan lebih besar daripada lelaki centaur + perempuan manusia.
-- Mermaid + centaur tidak kompatibel untuk keturunan.
+- Mermaid dan centaur **dapat memiliki keturunan secara biologis**, tetapi pertemuan mereka jarang karena habitat yang berbeda. Perbedaan postur juga membuat perkawinan lebih sulit, sehingga peluangnya rendah, bukan mustahil.
 - Untuk manusia × ras lain, komposisi gen anak hybrid adalah 40% manusia dan 60% ras pasangannya.
 - Anak hybrid dicatat dengan status campuran dan skor kecerdasan rata-rata sesuai proporsi gen.
 
