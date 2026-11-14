@@ -16,8 +16,8 @@ Skala kecerdasan memakai angka 1–5, dengan 1 paling cerdas:
 
 - **Elf:** membangun kota di atas pepohonan raksasa. Keahlian botani mereka memungkinkan mereka merekayasa tanaman agar tumbuh lebih besar dan subur, membentuk rumah, jembatan, dan ruang kota hidup di antara dahan.
 - **Goblin:** terbiasa tinggal di gua bawah tanah dan daerah sekitarnya; telinganya meruncing seperti telinga elf.
-- **Mermaid:** hidup di komunitas teluk, laguna, dan pesisir.
-- **Centaur:** membangun komunitas di padang rumput dan jalur terbuka.
+- **Mermaid:** hidup di sungai, pantai, teluk, dan laguna. Permukiman mereka menyesuaikan diri dengan aliran air tawar maupun pesisir.
+- **Centaur:** hidup di hutan dan padang rumput di tepi hutan; mereka menggunakan jalur terbuka antara pepohonan dan padang untuk bepergian.
 
 ## Pasangan dan keturunan
 
