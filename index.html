@@ -34,7 +34,7 @@
           <h3 style="margin-top:20px">Pilih tindakan</h3>
           <div id="actions" class="actions"></div>
           <button class="btn primary" id="advance" style="width:100%;margin-top:12px">Akhiri pekan · Simulasikan dunia</button>
-          <p class="muted small">Setiap tindakan memakai satu pekan. Penduduk, persediaan, dan hubungan antarkeluarga berubah seiring waktu.</p>
+          <p class="muted small">Setiap tindakan memakai satu pekan. Penduduk, persediaan, hubungan romantis, dan ancaman luar berubah seiring waktu.</p>
         </article>
         <aside class="panel"><div class="kicker">Kabar terbaru</div><h2>Riwayat wilayah</h2><div class="feed" id="feed"></div></aside>
       </div>
@@ -47,7 +47,7 @@
     </section>
     <section class="section" id="catatan"><article class="panel"><div class="kicker">Kisah yang tersimpan</div><h2>Riwayat perintisan</h2><p class="muted">Catatan kejadian terbaru akan muncul di sini.</p><div class="feed" id="allFeed"></div></article></section>
     <section class="section" id="populasi"><article class="panel"><div class="kicker">Data warga</div><h2>Populasi setiap ras</h2><p class="muted">Daftar jumlah penduduk di dunia saat ini. Data dibaca dari save browser dan dapat diperbarui kapan pun.</p><div class="stats" id="populationStats"></div></article></section>
-    <footer class="footer">Game simulasi teks ringan · disimpan otomatis di browser · semua keluarga dan peristiwa dibuat khusus untuk Dunia.</footer>
+    <footer class="footer">Game simulasi teks ringan · kingdom builder · romance dan action · disimpan otomatis di browser.</footer>
   </main>
   <div id="toast" class="toast" hidden></div>
 <script>
@@ -90,7 +90,7 @@
     document.querySelector('#realmName').textContent=s.realm;
     document.querySelector('#seasonLine').textContent=`Tahun ${s.year} · Pekan ${s.week}`;
     document.querySelector('#chapter').textContent=s.population>=100?'Permukiman menjadi kota':s.farms+s.workshops+s.markets>=6?'Jalan-jalan mulai ramai':'Sebuah permulaan';
-    document.querySelector('#worldText').textContent=`Di ${s.realm}, ${s.population} warga membangun kehidupan baru. ${s.farms} ladang, ${s.workshops} bengkel, dan ${s.markets} pasar menopang masa depan lembah.`;
+    document.querySelector('#worldText').textContent=`Di ${s.realm}, ${s.population} warga membangun kerajaan baru, menata rumah, memperkuat hubungan romantis, dan mempersiapkan pertahanan. ${s.farms} ladang, ${s.workshops} bengkel, dan ${s.markets} pasar menopang masa depan lembah.`;
     document.querySelector('#stats').innerHTML=stat('Penduduk',s.population)+stat('Emas',s.gold)+stat('Makanan',s.food)+stat('Kayu',s.wood)+stat('Perkakas',s.tools)+stat('Kain',s.cloth)+stat('Reputasi',s.reputation)+stat('Pengaruh',s.influence)+stat('Pengetahuan',s.knowledge);
     document.querySelector('#stabilityText').textContent=`${s.stability}%`;
     document.querySelector('#stabilityBar').style.width=`${s.stability}%`;
