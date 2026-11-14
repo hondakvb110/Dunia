@@ -1,17 +1,316 @@
 <!doctype html>
-<html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101813"><title>Dunia — Bangsa, Usia, dan Keluarga</title>
-<style>
-:root{color-scheme:dark;--bg:#0b100d;--panel:#141d17;--line:#2c3b30;--text:#e9f0e8;--muted:#a0aea1;--green:#b9df91;--gold:#e5c27c}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1d2b20,transparent 38%),var(--bg);color:var(--text);font:15px/1.55 system-ui,sans-serif}.wrap{max-width:1000px;margin:auto;padding:18px}.top,.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand,.kicker{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.top h1{margin:3px 0;font-size:clamp(25px,5vw,36px)}.muted{color:var(--muted)}.panel{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#19251c,#111912);padding:17px;margin:12px 0}.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.race{border:1px solid var(--line);border-radius:12px;background:#101711;padding:14px}.race h2{margin:0 0 6px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0}.stat{background:#0b120d;border:1px solid #26342a;border-radius:9px;padding:8px}.stat small{display:block;color:var(--muted)}.stat b{font-size:18px}.btn,select{display:inline-block;border:1px solid var(--line);border-radius:10px;background:#172119;color:var(--text);padding:9px 12px;text-decoration:none;cursor:pointer;font:inherit}.btn:hover{border-color:#79936f}.primary{background:var(--green);color:#152014;border-color:var(--green);font-weight:800}.tag{display:inline-block;border:1px solid #3a4b3b;border-radius:999px;padding:2px 8px;color:var(--green);font-size:11px;margin:2px}.entry{padding:8px 10px;border-left:2px solid #718a65;background:#101711;margin:7px 0}.entry small{color:var(--gold)}.form{display:flex;flex-wrap:wrap;gap:8px;align-items:end}.form label{display:flex;flex-direction:column;gap:4px;color:var(--muted);font-size:12px}.toast{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);background:#e8f1df;color:#172017;padding:10px 15px;border-radius:10px;font-weight:700;max-width:90vw}.footer{font-size:12px;color:#829084;padding:12px 3px}@media(max-width:650px){.wrap{padding:12px}.grid,.cards{grid-template-columns:1fr}.stats{grid-template-columns:repeat(3,1fr)}}
-</style></head><body><main class="wrap">
-<header class="top"><div><div class="brand">Dunia · Bangsa dan Usia</div><h1>Bangsa, ikatan, generasi</h1><div id="date" class="muted"></div></div><div><a class="btn" href="index.html">Lembah</a> <a class="btn" href="kampanye.html">Kampanye</a></div></header>
-<section class="panel"><div class="kicker">Bangsa dan usia</div><p class="muted">Elf, mermaid, dan centaur hidup hingga 120 tahun; manusia dan goblin hingga 80 tahun. Keturunan dari pasangan beda ras dapat menjadi hybrid. Untuk anak manusia × ras lain, komposisi gen simulasi adalah tepat 40% manusia dan 60% ras pasangannya. Kecerdasan diukur dengan skala 1–5 di mana 1 paling cerdas: elf 1, manusia 2, mermaid 3, centaur 4, goblin 5.</p><div id="summary" class="stats"></div><button class="btn primary" id="advance">Lanjutkan satu pekan</button> <span class="muted" id="saveNote">Tersimpan otomatis di browser.</span></section>
-<section class="cards" id="races"></section>
-<section class="panel"><div class="kicker">Keluarga lintas bangsa</div><h2>Jodoh dan keturunan</h2><p class="muted">Pilih dua orang dewasa yang belum berpasangan. Tabu membuat hubungan elf/goblin dengan bangsa lain lebih jarang; laki-laki manusia dan perempuan centaur lebih mungkin berjodoh daripada pasangan laki-laki centaur dan perempuan manusia. Mermaid-centaur tidak kompatibel untuk keturunan.</p><div class="form"><label>Pasangan pertama<select id="mateA"></select></label><label>Pasangan kedua<select id="mateB"></select></label><button class="btn primary" id="pair">Kenalkan dan coba jodoh</button></div><div id="couples" style="margin-top:12px"></div></section>
-<div class="grid"><section class="panel"><div class="kicker">Kehidupan bersama</div><h2>Budaya dan tempat tinggal</h2><div id="culture"></div></section><section class="panel"><div class="kicker">Riwayat bangsa</div><h2>Peristiwa</h2><div id="events"></div></section></div><footer class="footer">Simulasi fantasi teks ringan. Data ras, pasangan, gen, dan generasi tersimpan bersama dunia utama di localStorage.</footer></main><div id="toast" class="toast" hidden></div>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101813">
+  <title>Dunia — Bangsa, Usia, dan Keluarga</title>
+  <style>
+    :root{color-scheme:dark;--bg:#0b100d;--panel:#141d17;--line:#2c3b30;--text:#e9f0e8;--muted:#a0aea1;--green:#b9df91;--gold:#e5c27c}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1d2b20 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:1000px;margin:auto;padding:18px}.top,.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand,.kicker{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}h1{margin:4px 0;font-size:clamp(28px,5vw,38px)}.muted{color:var(--muted)}.panel{border:1px solid var(--line);border-radius:15px;background:linear-gradient(145deg,#19251c,#111912);padding:16px;margin:12px 0}.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.card{background:#0d160f;border:1px solid var(--line);border-radius:12px;padding:12px}.card h3{margin:0 0 8px}.people{display:grid;gap:6px}.person-chip{padding:7px 8px;border-left:2px solid #718a65;background:#101711;border-radius:8px;color:var(--text)}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#0b120d;border:1px solid #26342a;border-radius:9px;padding:9px}.stat small{display:block;color:var(--muted)}.btn,select,input{border:1px solid var(--line);border-radius:10px;background:#172119;color:var(--text);padding:9px 12px;font:inherit}.btn{cursor:pointer;text-decoration:none}.primary{background:var(--green);color:#152014;border-color:var(--green);font-weight:800}.form{display:flex;align-items:end;gap:8px;flex-wrap:wrap}.form label{display:flex;flex-direction:column;gap:4px;color:var(--muted);font-size:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.footer{font-size:12px;color:#829084;padding:12px 3px}.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:#e8f1df;color:#172017;padding:10px 15px;border-radius:10px;font-weight:700}.entry{padding:8px 10px;border-left:2px solid #718a65;background:#101711;margin:6px 0}.@media(max-width:720px){.grid{grid-template-columns:1fr}.wrap{padding:12px}.top{flex-direction:column;align-items:flex-start}.stats{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="top">
+      <div>
+        <div class="brand">Dunia · Bangsa dan Usia</div>
+        <h1>Bangsa, ikatan, generasi</h1>
+        <div id="date" class="muted"></div>
+      </div>
+      <div>
+        <a class="btn" href="index.html">Lembah</a>
+        <a class="btn" href="lamia.html">Lamia</a>
+      </div>
+    </header>
+
+    <section class="panel">
+      <div class="kicker">Bangsa dan usia</div>
+      <p class="muted">Elf, mermaid, dan centaur hidup hingga 120 tahun; manusia dan goblin hingga 80 tahun. Keturunan dari pasangan beda ras tercatat secara terpisah sebagai hybrid. Nama orang dibuat dengan nuansa Eropa, namun tetap diberi variasi sesuai ras.</p>
+      <div class="cards" id="races"></div>
+    </section>
+
+    <section class="panel">
+      <div class="kicker">Keluarga lintas bangsa</div>
+      <h2>Jodoh dan keturunan</h2>
+      <p class="muted">Pilih dua orang dewasa yang belum berpasangan. Tabu membuat hubungan elf/goblin menurunkan peluang secara signifikan. Beberapa kombinasi ras memiliki peluang lebih besar karena habitat dan budaya mereka.</p>
+      <div class="form">
+        <label>Pasangan pertama<select id="mateA"></select></label>
+        <label>Pasangan kedua<select id="mateB"></select></label>
+        <button class="btn primary" id="pair">Coba berjodoh</button>
+      </div>
+      <div id="couples" style="margin-top:12px"></div>
+    </section>
+
+    <div class="grid">
+      <section class="panel">
+        <div class="kicker">Kehidupan bersama</div>
+        <h2>Budaya dan tempat tinggal</h2>
+        <div id="culture"></div>
+      </section>
+      <section class="panel">
+        <div class="kicker">Riwayat bangsa</div>
+        <h2>Peristiwa</h2>
+        <div id="events"></div>
+      </section>
+    </div>
+
+    <footer class="footer">Semua data ras dan generasi dipelihara bersama dunia utama melalui localStorage browser.</footer>
+  </main>
+
+  <div id="toast" class="toast" hidden></div>
+
 <script>
-(()=>{'use strict';const KEY='dunia-pioneers-save-v1';const defs={manusia:{name:'Manusia',life:80,intel:2,home:'Lembah dan permukiman',trait:'Mudah beradaptasi; membangun desa, usaha, dan jaringan antarkeluarga.'},elf:{name:'Elf',life:120,intel:1,home:'Hutan tua dan padang hijau',trait:'Telinga panjang meruncing; menjaga hutan dan tradisi pengetahuan.'},goblin:{name:'Goblin',life:80,intel:5,home:'Gua bawah tanah dan sekitarnya',trait:'Telinga meruncing seperti elf; terbiasa tinggal di gua, menambang, dan berdagang di sekitar mulut gua.'},mermaid:{name:'Mermaid',life:120,intel:3,home:'Teluk, laguna, dan pesisir',trait:'Bangsa perairan yang hidup di komunitas pesisir dan perairan dangkal.'},centaur:{name:'Centaur',life:120,intel:4,home:'Padang rumput dan jalur terbuka',trait:'Pengelana padang yang membangun komunitas di sekitar jalur darat.'}};const odds={manusia:{manusia:72,elf:60,goblin:60,mermaid:55,centaur:55},elf:{manusia:60,elf:72,goblin:50,mermaid:55,centaur:55},goblin:{manusia:60,elf:50,goblin:72,mermaid:50,centaur:50},mermaid:{manusia:55,elf:55,goblin:50,mermaid:72,centaur:0},centaur:{manusia:55,elf:55,goblin:50,mermaid:0,centaur:72}};
-let s;try{s=JSON.parse(localStorage.getItem(KEY))||{}}catch{s={}}s.year=s.year||1;s.week=s.week||1;s.population=s.population||24;s.log=Array.isArray(s.log)?s.log:[];s.races=s.races||{manusia:Array.from({length:24},(_,i)=>18+i%23),elf:[],goblin:[],mermaid:[],centaur:[]};for(const r of Object.keys(defs))s.races[r]=Array.isArray(s.races[r])?s.races[r]:[];s.couples=Array.isArray(s.couples)?s.couples:[];s.hybrids=Array.isArray(s.hybrids)?s.hybrids:[];s.nextPersonId=Number.isInteger(s.nextPersonId)?s.nextPersonId:1;s.goblinCaves=Number.isFinite(s.goblinCaves)?s.goblinCaves:s.races.goblin.length;s.goblinOutskirts=Number.isFinite(s.goblinOutskirts)?s.goblinOutskirts:0;const gender=()=>Math.random()<.5?'lelaki':'perempuan';for(const [race,arr] of Object.entries(s.races))s.races[race]=arr.map(p=>typeof p==='number'?{id:`person-${s.nextPersonId++}`,age:p,gender:gender(),partnerId:null,genes:{[race]:100}}:{...p,id:p.id||`person-${s.nextPersonId++}`,age:Number(p.age)||18,gender:p.gender||gender(),partnerId:p.partnerId||null,genes:p.genes||{[race]:100}});s.hybrids=s.hybrids.map(p=>({...p,id:p.id||`hybrid-${s.nextPersonId++}`,age:Number(p.age)||0,gender:p.gender||gender(),genes:p.genes||{manusia:40},partnerId:p.partnerId||null}));
-const all=()=>[...Object.entries(s.races).flatMap(([race,people])=>people.map(p=>({...p,race}))),...s.hybrids.map(p=>({...p,race:'hybrid'}))], clamp=n=>Math.max(0,Math.min(100,n));function save(){try{localStorage.setItem(KEY,JSON.stringify(s));document.querySelector('#saveNote').textContent='Tersimpan otomatis di browser.'}catch{document.querySelector('#saveNote').textContent='Penyimpanan browser tidak tersedia.'}}function note(text){s.log.unshift({year:s.year,week:s.week,text});s.log=s.log.slice(0,100)}function toast(text){const e=document.querySelector('#toast');e.textContent=text;e.hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>e.hidden=true,2400)}function esc(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function genesText(genes){return Object.entries(genes||{}).filter(([,n])=>n>.1).sort((a,b)=>b[1]-a[1]).map(([r,n])=>`${defs[r]?.name||r} ${Math.round(n)}%`).join(' · ')}function raceLabel(p){return p.race==='hybrid'?`Hybrid (${genesText(p.genes)})`:defs[p.race].name}function intelligenceOf(p){if(p.race==='hybrid'){const entries=Object.entries(p.genes||{});if(!entries.length)return 3;const total=entries.reduce((sum,[r,n])=>sum+n,0);return Math.round(entries.reduce((sum,[r,n])=>sum+n*(defs[r]?.intel||3),0)/total); }return defs[p.race].intel||3}function render(){document.querySelector('#date').textContent=`Tahun ${s.year} · Pekan ${s.week}`;const total=Object.values(s.races).reduce((n,a)=>n+a.length,0)+s.hybrids.length;document.querySelector('#summary').innerHTML=`<div class="stat"><small>Total penduduk</small><b>${total}</b></div><div class="stat"><small>Manusia / Goblin</small><b>80 tahun</b></div><div class="stat"><small>Elf / Mermaid / Centaur</small><b>120 tahun</b></div><div class="stat"><small>Goblin gua / sekitar</small><b>${s.goblinCaves} / ${s.goblinOutskirts}</b></div><div class="stat"><small>Hybrid</small><b>${s.hybrids.length}</b></div><div class="stat"><small>Pasangan tercatat</small><b>${s.couples.length}</b></div>`;document.querySelector('#races').innerHTML=Object.entries(defs).map(([id,r])=>{const ps=s.races[id],avg=ps.length?Math.round(ps.reduce((n,p)=>n+p.age,0)/ps.length):0;return `<article class="race"><div class="kicker">${r.home}</div><h2>${r.name}</h2><p class="muted">${r.trait}</p><div class="stats"><div class="stat"><small>Populasi</small><b>${ps.length}</b></div><div class="stat"><small>Usia hidup</small><b>${r.life}</b></div><div class="stat"><small>Kecerdasan</small><b>${r.intel}</b></div><div class="stat"><small>Rata-rata usia</small><b>${avg}</b></div></div>${id==='goblin'?'<span class="tag">Telinga seperti elf</span><span class="tag">Gua bawah tanah</span>':''}${id==='manusia'?'':`<p><button class="btn" data-settle="${id}">Undang 2 ${r.name} · 5 makanan</button></p>`}</article>`}).join('');if(s.hybrids.length)document.querySelector('#races').insertAdjacentHTML('beforeend',`<article class="race"><div class="kicker">Generasi campuran</div><h2>Hybrid</h2><p class="muted">Setiap anak hybrid menampilkan komposisi gen; kecerdasan rata-rata dihitung dari persentase gen masing-masing orang tua.</p><div class="stats"><div class="stat"><small>Populasi</small><b>${s.hybrids.length}</b></div><div class="stat"><small>Rata-rata umur</small><b>${Math.round(s.hybrids.reduce((n,p)=>n+p.age,0)/s.hybrids.length)}</b></div><div class="stat"><small>Kecerdasan rata-rata</small><b>${Math.round(s.hybrids.reduce((n,p)=>n+intelligenceOf(p),0)/s.hybrids.length)}</b></div></div>${s.hybrids.slice(-8).reverse().map(p=>`<div class="entry"><b>${esc(p.id)}</b> · usia ${p.age} · intel ${intelligenceOf(p)}<br><small>${esc(genesText(p.genes))}</small></div>`).join('')}</article>`);const adults=all().filter(p=>p.age>=18);const opts=adults.map(p=>`<option value="${esc(p.id)}">${esc(raceLabel(p))} · ${p.gender} · ${esc(p.id)} · usia ${p.age}</option>`).join('');for(const sel of ['#mateA','#mateB']){const el=document.querySelector(sel),old=el.value;el.innerHTML=opts||'<option value="">Belum ada penduduk dewasa</option>';if([...el.options].some(o=>o.value===old))el.value=old}document.querySelector('#couples').innerHTML=s.couples.length?s.couples.slice(0,20).map(c=>`<div class="entry"><small>Tahun ${c.year} · Pekan ${c.week}</small><div>${esc(c.a)} + ${esc(c.b)} — ${esc(c.status)}${c.child?` · Anak: ${esc(c.child)}`:''}</div></div>`).join(''):'<p class="muted">Belum ada pasangan.</p>';document.querySelector('#culture').innerHTML='<p><b>Goblin:</b> gua bawah tanah menjadi pusat tempat tinggal; sebagian warga menetap di sekitar pintu gua untuk bertani dan berdagang.</p><p><b>Elf:</b> menjaga hutan tua. <b>Mermaid:</b> hidup di laguna dan pesisir. <b>Centaur:</b> membangun komunitas di padang rumput.</p>';document.querySelector('#events').innerHTML=s.log.slice(0,12).map(e=>`<div class="entry"><small>Tahun ${e.year} · Pekan ${e.week}</small><div>${esc(e.text)}</div></div>`).join('');save()}
-function settle(id){if(!defs[id]||id==='manusia')return;if((s.food||0)<5)return toast('Butuh 5 makanan.');s.food-=5;for(let i=0;i<2;i++)s.races[id].push({id:`person-${s.nextPersonId++}`,age:18+Math.floor(Math.random()*13),gender:gender(),partnerId:null,genes:{[id]:100}});if(id==='goblin'){s.goblinCaves+=2;if(Math.random()<.5)s.goblinOutskirts++}note(`Dua ${defs[id].name} menetap di ${defs[id].home.toLowerCase()}.`);render();toast(`${defs[id].name} bergabung.`)}function chanceFor(a,b){if([a.race,b.race].includes('mermaid')&&[a.race,b.race].includes('centaur'))return 0;let n=a.race==='hybrid'||b.race==='hybrid'?45:odds[a.race][b.race];if(a.race!==b.race&&(a.race==='elf'||a.race==='goblin'||b.race==='elf'||b.race==='goblin'))n*=.18;if(a.race==='centaur'&&a.gender==='lelaki'&&b.race==='manusia'&&b.gender==='perempuan')return 12;if(b.race==='centaur'&&b.gender==='lelaki'&&a.race==='manusia'&&a.gender==='perempuan')return 12;if(a.race==='manusia'&&a.gender==='lelaki'&&b.race==='centaur'&&b.gender==='perempuan')return 52;if(b.race==='manusia'&&b.gender==='lelaki'&&a.race==='centaur'&&a.gender==='perempuan')return 52;return n}function mergeGenes(a,b){if(a.race==='manusia'&&b.race!=='manusia'&&b.race!=='hybrid')return{manusia:40,[b.race]:60};if(b.race==='manusia'&&a.race!=='manusia'&&a.race!=='hybrid')return{manusia:40,[a.race]:60};const out={};for(const [r,v]of Object.entries(a.genes||{[a.race]:100}))out[r]=(out[r]||0)+v/2;for(const [r,v]of Object.entries(b.genes||{[b.race]:100}))out[r]=(out[r]||0)+v/2;const sum=Object.values(out).reduce((x,y)=>x+y,0);for(const r in out)out[r]=out[r]*100/sum;return out}function pair(){const people=all(),a=people.find(p=>p.id===document.querySelector('#mateA').value),b=people.find(p=>p.id===document.querySelector('#mateB').value);if(!a||!b)return toast('Pilih dua orang dewasa.');if(a.id===b.id)return toast('Pilih dua orang berbeda.');if(a.age<18||b.age<18)return toast('Hanya orang dewasa yang dapat dipasangkan.');if(a.gender===b.gender)return toast('Pilih pasangan lelaki dan perempuan untuk simulasi keturunan.');if(a.partnerId||b.partnerId)return toast('Salah satu sudah memiliki pasangan.');const n=chanceFor(a,b),la=`${raceLabel(a)} ${a.gender} (${a.id})`,lb=`${raceLabel(b)} ${b.gender} (${b.id})`;if(!n||Math.random()*100>=n){const status=n?`Tidak berjodoh kali ini (peluang ${Math.round(n)}%).`:'Tidak kompatibel untuk keturunan karena perbedaan anatomi.';s.couples.unshift({year:s.year,week:s.week,a:la,b:lb,status});note(`${la} dan ${lb}: ${status}`);render();return toast(n?'Hubungan tidak terbentuk kali ini.':'Tidak kompatibel untuk keturunan.')}a.partnerId=b.id;b.partnerId=a.id;let child='';if(Math.random()<.34){if(a.race!==b.race||a.race==='hybrid'||b.race==='hybrid'){const genes=mergeGenes(a,b);const life=Math.round(Object.entries(genes).reduce((sum,[r,pct])=>sum+(defs[r]?.life||80)*pct/100,0));const baby={id:`hybrid-${s.nextPersonId++}`,age:0,gender:gender(),genes,life,partnerId:null};s.hybrids.push(baby);child=`Hybrid (${genesText(genes)})`;if(genes.goblin)s.goblinCaves++}else{const baby={id:`person-${s.nextPersonId++}`,age:0,gender:gender(),partnerId:null,genes:{[a.race]:100}};s.races[a.race].push(baby);child=defs[a.race].name}}const status=`Pasangan terbentuk (peluang ${Math.round(n)}%).`;s.couples.unshift({year:s.year,week:s.week,a:la,b:lb,status,child});s.couples=s.couples.slice(0,60);note(`${la} dan ${lb} menjadi pasangan.${child?` Keturunan: ${child}.`:''}`);render();toast(child?'Pasangan terbentuk; keturunan tercatat.':'Pasangan terbentuk.')}
-function advance(){s.week++;if(s.week>52){s.week=1;s.year++;const deaths=[];for(const [r,ps]of Object.entries(s.races))for(let i=ps.length-1;i>=0;i--){ps[i].age++;if(ps[i].age>=defs[r].life){if(ps[i].partnerId){const mate=all().find(p=>p.id===ps[i].partnerId);if(mate)mate.partnerId=null}ps.splice(i,1);deaths.push(defs[r].name)}}for(let i=s.hybrids.length-1;i>=0;i--){const p=s.hybrids[i];p.age++;if(p.age>=Math.round(Object.entries(p.genes).reduce((sum,[r,v])=>sum+(defs[r]?.life||80)*v/100,0))){if(p.partnerId){const mate=all().find(x=>x.id===p.partnerId);if(mate)mate.partnerId=null}s.hybrids.splice(i,1);deaths.push('Hybrid')}}if(deaths.length)note(`Pergantian tahun: ${deaths.length} penduduk mencapai batas usia.`);else note('Tahun baru dimulai; semua penduduk bertambah usia satu tahun.');s.goblinCaves=Math.min(s.goblinCaves,s.races.goblin.length)}render();toast('Kalender bergerak satu pekan.')}document.addEventListener('click',e=>{const b=e.target.closest('[data-settle]');if(b)settle(b.dataset.settle)});document.querySelector('#pair').addEventListener('click',pair);document.querySelector('#advance').addEventListener('click',advance);render()})();
-</script></body></html>
+(() => {
+  'use strict';
+  const KEY='dunia-pioneers-save-v1';
+  const defs={
+    manusia:{name:'Manusia',life:80,intel:2,home:'Lembah dan permukiman',trait:'Mudah beradaptasi; membangun desa, usaha, dan jaringan perdagangan.'},
+    elf:{name:'Elf',life:120,intel:1,home:'Hutan pohon raksasa',trait:'Peka terhadap alam; membangun kota di dahan dan mengolah tumbuhan besar.'},
+    goblin:{name:'Goblin',life:80,intel:5,home:'Gua dan lereng bawah tanah',trait:'Terlatih di gua, menyukai barang kecil, dan memiliki naluri bertahan hidup.'},
+    mermaid:{name:'Mermaid',life:120,intel:3,home:'Sungai, teluk, dan laguna',trait:'Berlaku di air tawar dan pesisir; peka pada arus dan cuaca laut.'},
+    centaur:{name:'Centaur',life:120,intel:4,home:'Padang rumput dan tepi hutan',trait:'Membawa kecepatan, kekuatan, dan keterampilan jelajah di tempat terbuka.'}
+  };
+
+  const LAST_NAMES=['Andersen','Berg','Hansen','Lindberg','Kovač','Moreau','Dubois','Ricci','Silva','Vargas','Petrov','Müller','Santos','Rossi','Björk','Sørensen','Bianchi','Iversen','Leclerc','Foster','Nikolov','Marin','Delaunay'];
+  const NAME_TABLE={
+    manusia:{lelaki:['Aldric','Elias','Noah','Lucian','Matteo','Sebastian','Adrian','Nikolai','Finn','Oliver','Dorian','Bastian','Leander','Cassian'],'perempuan':['Elena','Livia','Clara','Anya','Marina','Isabelle','Sofia','Cecilia','Emilia','Adeline','Vivienne','Selene']},
+    elf:{lelaki:['Aurelian','Caelan','Thalion','Ilyan','Eldric','Rhelen','Valen','Aeron','Theodor','Lysander'],'perempuan':['Aurelia','Seren','Liora','Eirian','Aveline','Nyra','Elowen','Talia','Caelia','Sylva']},
+    goblin:{lelaki:['Rik','Bram','Tobin','Darn','Korr','Vek','Grim','Mog','Varg','Fenn'],'perempuan':['Mira','Kez','Tara','Nibb','Snip','Gret','Jora','Vex','Runa','Della']},
+    mermaid:{lelaki:['Dario','Luca','Nerio','Marin','Ivo','Leone','Soren','Orion','Tomas','Cassian'],'perempuan':['Nerina','Iris','Selena','Coralie','Maris','Anita','Delia','Luna','Mirela','Naia']},
+    centaur:{lelaki:['Arden','Ronan','Cael','Darian','Eamon','Rowan','Bren','Cassian','Tavian','Oren'],'perempuan':['Ariadne','Maeve','Seraphine','Freya','Lena','Thalia','Cora','Niamh','Elara','Vera']}
+  };
+
+  function pick(items){return items[Math.floor(Math.random()*items.length)];}
+  function generateName(race, gender){
+    const base = NAME_TABLE[race] || NAME_TABLE.manusia;
+    const pool = base[gender] || base.lelaki || Object.values(base)[0];
+    return `${pick(pool)} ${pick(LAST_NAMES)}`;
+  }
+
+  function defaultSave(){
+    return {
+      year:1,week:1,population:24,food:35,log:[],races:{manusia:[],elf:[],goblin:[],mermaid:[],centaur:[]},hybrids:[],nextPersonId:1,version:1
+    };
+  }
+
+  function load(){
+    try {
+      const raw=JSON.parse(localStorage.getItem(KEY));
+      if(!raw) return defaultSave();
+      const out=defaultSave();
+      out.year=Number(raw.year)||1; out.week=Number(raw.week)||1; out.population=Number(raw.population)||24; out.food=Number(raw.food)||35; out.log=Array.isArray(raw.log)?raw.log:[]; out.nextPersonId=Number(raw.nextPersonId)||1; out.races={manusia:[],elf:[],goblin:[],mermaid:[],centaur:[]};
+      for(const [race,people] of Object.entries(raw.races||{})) if(Array.isArray(people)) out.races[race]=people.map(person=>({
+        id:person.id || `person-${out.nextPersonId++}`,
+        age:Number(person.age)||18,
+        gender:person.gender || (Math.random()<.5?'perempuan':'lelaki'),
+        name:person.name || generateName(race, person.gender || (Math.random()<.5?'perempuan':'lelaki')),
+        partnerId:person.partnerId||null
+      }));
+      out.hybrids=Array.isArray(raw.hybrids)?raw.hybrids.map(p=>({
+        ...(p||{}),
+        name:p.name || generateName('manusia', Math.random()<.5?'perempuan':'lelaki')
+      })):[];
+      for(const race of Object.keys(out.races)) {
+        out.races[race]=out.races[race].map(person => ({
+          ...person,
+          name: person.name || generateName(race, person.gender || (Math.random()<.5?'perempuan':'lelaki'))
+        }));
+      }
+      return out;
+    } catch {
+      return defaultSave();
+    }
+  }
+
+  let s=load();
+
+  function save(){
+    try { localStorage.setItem(KEY, JSON.stringify(s)); }
+    catch {}
+  }
+
+  function allPeople(){
+    const items=[];
+    for(const [race,people] of Object.entries(s.races)) {
+      for(const person of people) items.push({...person,race});
+    }
+    for(const hybrid of s.hybrids||[]) items.push({...hybrid,race:'hybrid'});
+    return items;
+  }
+
+  function toast(text){
+    const el=document.getElementById('toast');
+    el.textContent=text; el.hidden=false; clearTimeout(toast.timer); toast.timer=setTimeout(()=>el.hidden=true,2200);
+  }
+
+  function clamp(n,min=0,max=100){return Math.max(min,Math.min(max,n));}
+
+  function makePerson(race, custom={}){
+    const gender = custom.gender || (Math.random() < 0.5 ? 'perempuan' : 'lelaki');
+    const age = Number(custom.age) || (18 + Math.floor(Math.random()*28));
+    const person = {
+      id: custom.id || `person-${s.nextPersonId++}`,
+      name: custom.name || generateName(race, gender),
+      age,
+      gender,
+      partnerId: custom.partnerId || null
+    };
+    return person;
+  }
+
+  function note(text){
+    s.log.unshift({year:s.year,week:s.week,text});
+    s.log=s.log.slice(0,80);
+  }
+
+  function renderRaceCards(){
+    const cards=[];
+    for(const [race,meta] of Object.entries(defs)) {
+      const people = (s.races[race] || []).slice().sort((a,b)=>a.name.localeCompare(b.name));
+      cards.push(`
+        <article class="card">
+          <h3>${meta.name}</h3>
+          <div class="muted small">${people.length} orang · Umur ${meta.life} tahun</div>
+          <div class="people">
+            ${people.length ? people.map(p => `<div class="person-chip"><b>${p.name}</b><div class="muted small">${p.gender} · ${p.age} tahun</div></div>`).join('') : '<div class="person-chip"><div class="muted small">Belum ada warga.</div></div>'}
+          </div>
+        </article>
+      `);
+    }
+    document.getElementById('races').innerHTML = cards.join('');
+  }
+
+  function renderCouples(){
+    const people = allPeople().filter(p => p.age >= 18 && !p.partnerId);
+    const opts = people.map(p => `<option value="${p.id}">${p.name} · ${p.race || 'hybrid'}</option>`).join('');
+    document.getElementById('mateA').innerHTML = opts || '<option value="">Belum ada pilihan</option>';
+    document.getElementById('mateB').innerHTML = opts || '<option value="">Belum ada pilihan</option>';
+
+    const pairList = [];
+    for(const [race,folk] of Object.entries(s.races)) {
+      for(const p of folk) {
+        if(p.partnerId) {
+          const pair = allPeople().find(x => x.id === p.partnerId);
+          if(pair) pairList.push(`${p.name} + ${pair.name} (${defs[race].name} / ${pair.race === 'hybrid' ? 'Hybrid' : defs[pair.race].name})`);
+        }
+      }
+    }
+    document.getElementById('couples').innerHTML = pairList.length ? pairList.map(x => `<div class="entry">${x}</div>`).join('') : '<div class="entry">Belum ada pasangan yang resmi.</div>';
+  }
+
+  function renderCulture(){
+    const lines = [
+      '<div class="entry"><b>Manusia</b><div class="muted small">Mudah menyesuaikan diri; membangun permukiman dan jaringan dagang yang kuat.</div></div>',
+      '<div class="entry"><b>Elf</b><div class="muted small">Berlaku di hutan besar; budayanya menekankan menjaga alam, tumbuhan, dan keseimbangan antara kota dan pohon.</div></div>',
+      '<div class="entry"><b>Goblin</b><div class="muted small">Menempati gua, menjaga mesin sederhana, dan mengutamakan kelangsungan hidup di ruang sempit.</div></div>',
+      '<div class="entry"><b>Mermaid</b><div class="muted small">Maju di sungai, teluk, dan pantai; mengembangkan cara hidup yang menyesuaikan arus air dan musim.</div></div>',
+      '<div class="entry"><b>Centaur</b><div class="muted small">Jelajah padang, hidup di batas padang dan hutan, serta membangun hubungan dekat dengan tanah dan timur.</div></div>'
+    ];
+    document.getElementById('culture').innerHTML = lines.join('');
+  }
+
+  function renderEvents(){
+    const events = Array.isArray(s.log) && s.log.length ? s.log.slice(0,10) : [{year:s.year,week:s.week,text:'Belum ada peristiwa bangsa yang tercatat.'}];
+    document.getElementById('events').innerHTML = events.map(e => `<div class="entry"><div class="muted small">Tahun ${e.year} · Pekan ${e.week}</div><div>${e.text}</div></div>`).join('');
+  }
+
+  function render(){
+    document.getElementById('date').textContent = `Tahun ${s.year} · Pekan ${s.week}`;
+    renderRaceCards();
+    renderCouples();
+    renderCulture();
+    renderEvents();
+    save();
+  }
+
+  function settle(id){
+    if(!defs[id] || id === 'manusia') return;
+    if((s.food || 0) < 5) return toast('Butuh 5 makanan.');
+    s.food -= 5;
+    for(let i=0;i<2;i++) {
+      s.races[id].push(makePerson(id));
+    }
+    s.population = (Object.values(s.races).reduce((sum,arr)=>sum + arr.length, 0) + (s.hybrids||[]).length);
+    note(`${defs[id].name} menambah 2 pendatang baru dengan nama baru di dunia.`);
+    render();
+    toast(`${defs[id].name} bertambah.`);
+  }
+
+  function pair(){
+    const all = allPeople();
+    const a = all.find(x => x.id === document.getElementById('mateA').value);
+    const b = all.find(x => x.id === document.getElementById('mateB').value);
+    if(!a || !b || a.id === b.id) return toast('Pilih dua orang yang berbeda.');
+    if(a.age < 18 || b.age < 18) return toast('Keduanya harus dewasa.');
+    if(a.partnerId || b.partnerId) return toast('Salah satu pasangan sudah berstatus terikat.');
+    const raceA = a.race === 'hybrid' ? 'hybrid' : a.race;
+    const raceB = b.race === 'hybrid' ? 'hybrid' : b.race;
+    if(raceA === 'hybrid' || raceB === 'hybrid') {
+      a.partnerId = b.id; b.partnerId = a.id;
+      note(`${a.name} dan ${b.name} membentuk ikatan baru di tengah para hybrid.`);
+      render();
+      return toast('Pasangan hybrid tercatat.');
+    }
+
+    let chance = 60;
+    if((raceA === 'elf' && raceB === 'goblin') || (raceA === 'goblin' && raceB === 'elf')) chance = 16;
+    if((raceA === 'mermaid' && raceB === 'centaur') || (raceA === 'centaur' && raceB === 'mermaid')) chance = 22;
+    if((raceA === 'manusia' && raceB === 'centaur') || (raceA === 'centaur' && raceB === 'manusia')) chance = 68;
+    if((raceA === 'manusia' && raceB === 'goblin') || (raceA === 'goblin' && raceB === 'manusia')) chance = 45;
+    const ok = Math.random() * 100 < chance;
+    if(!ok){
+      note(`${a.name} dan ${b.name} belum menemukan kecocokan saat ini.`);
+      render();
+      return toast('Hubungan belum terbentuk.');
+    }
+    a.partnerId = b.id; b.partnerId = a.id;
+    note(`${a.name} dan ${b.name} resmi menjadi pasangan.`);
+    render();
+    toast('Pasangan baru tercatat.');
+  }
+
+  function advance(){
+    s.week += 1;
+    if(s.week > 52){ s.week = 1; s.year += 1; }
+    for(const [race,people] of Object.entries(s.races)) {
+      for(let i = people.length - 1; i >= 0; i--) {
+        people[i].age += 1;
+        if(people[i].age >= defs[race].life) {
+          people.splice(i, 1);
+          note(`${people[i]?.name || 'Seorang penduduk'} meninggalkan dunia ${defs[race].name}.`);
+        }
+      }
+    }
+    s.population = Object.values(s.races).reduce((sum,arr)=>sum + arr.length, 0) + (s.hybrids||[]).length;
+    if(s.population < 10 && Math.random() < 0.25) {
+      const race = pick(Object.keys(defs));
+      if(race !== 'manusia') s.races[race].push(makePerson(race));
+      else s.races.manusia.push(makePerson('manusia'));
+      note(`Sebuah keluarga baru dari ${defs[race].name} menetap di lembah.`);
+    }
+    render();
+    toast('Satu pekan berlalu.');
+  }
+
+  document.getElementById('pair').addEventListener('click', pair);
+  document.getElementById('mateA').addEventListener('change', renderCouples);
+  document.getElementById('mateB').addEventListener('change', renderCouples);
+
+  // add a default set of named people for fresh saves
+  if(!s.races || !Object.keys(s.races).length) s.races = defaultSave().races;
+  Object.keys(defs).forEach(race => {
+    if(!Array.isArray(s.races[race])) s.races[race]=[];
+    if(s.races[race].length === 0 && race === 'manusia') {
+      for(let i=0;i<8;i++) s.races[race].push(makePerson('manusia'));
+    }
+    if(s.races[race].length === 0 && race !== 'manusia') {
+      for(let i=0;i<2;i++) s.races[race].push(makePerson(race));
+    }
+  });
+  s.population = Object.values(s.races).reduce((sum,arr)=>sum + arr.length, 0) + (s.hybrids||[]).length;
+  render();
+})();
+</script>
+</body>
+</html>
+
