@@ -2,14 +2,24 @@
 
 Game mencatat manusia, elf, goblin, mermaid, dan centaur. Usia hidup dasar manusia/goblin 80 tahun; elf, mermaid, dan centaur 120 tahun. Goblin biasa tinggal di gua bawah tanah dan sekitarnya.
 
+## Kecerdasan
+
+Skala kecerdasan memakai angka 1–5, dengan 1 paling cerdas:
+
+- Elf = 1
+- Manusia = 2
+- Mermaid = 3
+- Centaur = 4
+- Goblin = 5
+
 ## Pasangan dan keturunan
 
 - Simulasi pasangan hanya memilih penduduk dewasa dan menampilkan jenis kelamin.
 - Manusia dapat berjodoh dengan semua bangsa.
 - Perkawinan elf atau goblin dengan bangsa lain secara biologis mungkin di dunia cerita ini, tetapi tabu sosial menurunkan peluang hubungan secara signifikan.
-- Pasangan lelaki manusia + perempuan centaur mendapat peluang hubungan lebih besar daripada lelaki centaur + perempuan manusia. Yang terakhir tetap mungkin, tetapi jauh lebih sulit karena anatomi/postur.
-- Mermaid + centaur tidak kompatibel untuk keturunan karena perbedaan anatomi dan lingkungan.
-- Keturunan lahir sebagai anggota salah satu bangsa orang tuanya; goblin yang lahir ditempatkan di gua atau sekitar gua.
-- Pasangan sesama jenis tidak ditawarkan di mekanik keturunan ini; semua hasil bersifat non-eksplisit dan berbasis peluang.
+- Pasangan lelaki manusia + perempuan centaur mendapat peluang hubungan lebih besar daripada lelaki centaur + perempuan manusia.
+- Mermaid + centaur tidak kompatibel untuk keturunan.
+- Untuk manusia × ras lain, komposisi gen anak hybrid adalah 40% manusia dan 60% ras pasangannya.
+- Anak hybrid dicatat dengan status campuran dan skor kecerdasan rata-rata sesuai proporsi gen.
 
-Seluruh perubahan disimpan bersama data dunia melalui `localStorage` browser.
+Seluruh perubahan disimpan bersama data dunia melalui localStorage browser.
