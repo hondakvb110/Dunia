@@ -7,9 +7,7 @@
   <title>Dunia — Kisah Perintis</title>
   <style>
     :root{color-scheme:dark;--bg:#0b100d;--panel:#141d17;--panel2:#19251c;--line:#2c3b30;--text:#e9f0e8;--muted:#a0aea1;--green:#b9df91;--gold:#e5c27c;--red:#e78d7e;--blue:#8fc5d2}
-    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1d2b20 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible{outline:2px solid var(--green);outline-offset:2px}.wrap{max-width:1120px;margin:auto;padding:20px}.top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:6px 0 20px}.brand{font-weight:900;letter-spacing:.12em;color:var(--green);font-size:12px;text-transform:uppercase}.top h1{margin:2px 0 0;font-size:clamp(24px,5vw,36px);line-height:1.15}.top-right{display:flex;align-items:center;gap:8px}.pill,.btn{border:1px solid var(--line);border-radius:10px;background:#172119;padding:9px 12px}.btn:hover{border-color:#79936f;background:#202e23}.btn.primary{background:var(--green);color:#152014;border-color:var(--green);font-weight:800}.btn:disabled{opacity:.42;cursor:not-allowed}.grid{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}.panel{border:1px solid var(--line);border-radius:16px;background:linear-gradient(145deg,rgba(25,37,28,.97),rgba(17,25,19,.97));padding:18px;box-shadow:0 12px 36px #0002}.panel h2,.panel h3{margin:0 0 10px}.kicker{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase}.muted{color:var(--muted)}.lead{font-size:16px;color:#d9e3d9}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0}.stat{background:#0e1510;border:1px solid #26342a;border-radius:12px;padding:10px}.stat span{display:block;color:var(--muted);font-size:11px}.stat strong{font-size:20px}.meter{height:6px;background:#29352b;border-radius:9px;overflow:hidden;margin-top:8px}.meter i{height:100%;display:block;background:var(--green);border-radius:9px}.actions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:14px}.action{display:flex;flex-direction:column;text-align:left;gap:4px;min-height:84px;border:1px solid var(--line);border-radius:12px;background:#111a14;padding:11px}.action strong{color:var(--green)}.action small{color:var(--muted);line-height:1.35}.feed{max-height:400px;overflow:auto;display:flex;flex-direction:column;gap:8px}.entry{border-left:2px solid #718a65;padding:7px 10px;background:#101711;border-radius:0 8px 8px 0}.entry .date{font-size:11px;color:var(--gold);font-weight:700}.entry p{margin:3px 0 0}.people{display:flex;flex-direction:column;gap:8px}.person{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:#101711}.tag{font-size:11px;border:1px solid #3a4b3b;border-radius:999px;padding:2px 8px;color:var(--green);white-space:nowrap}.tabs{display:flex;gap:8px;overflow-x:auto;margin:0 0 14px}.tab{border:1px solid var(--line);background:#121a14;border-radius:999px;padding:8px 13px;white-space:nowrap}.tab[aria-selected=true]{background:var(--green);color:#142014;font-weight:800;border-color:var(--green)}.section{display:none}.section.active{display:block}.footer{padding:18px 4px;color:#829084;font-size:12px}.notice{padding:11px;border:1px solid #536a4d;border-radius:10px;background:#182519;color:#dce9d5}.gold{color:var(--gold)}.danger{color:var(--red)}.trade{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid var(--line)}.trade:last-child{border:0}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.small{font-size:12px}.toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#e8f1df;color:#172017;padding:10px 15px;border-radius:12px;font-weight:700;box-shadow:0 8px 30px #0007;max-width:90vw;z-index:5}
-    @media(max-width:760px){.wrap{padding:14px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.top{align-items:flex-start}.top-right{flex-direction:column;align-items:flex-end}.actions{grid-template-columns:1fr 1fr}.feed{max-height:280px}}
-    @media(max-width:420px){.actions{grid-template-columns:1fr}.pill,.btn{padding:8px 10px}.top-right .pill{font-size:12px}}
+    *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 10% 0%,#1d2b20 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}.wrap{max-width:1200px;margin:auto;padding:18px}.top,.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.brand,.kicker{color:var(--green);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}.top h1{margin:4px 0;font-size:clamp(28px,4vw,42px)}.muted{color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab{background:#171f1a;border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--text);cursor:pointer}.tab[aria-selected="true"]{background:#1f2d23;border-color:var(--green)}.section{display:none}.section.active{display:block}.grid{display:grid;grid-template-columns:1.5fr .9fr;gap:12px}.panel{background:linear-gradient(145deg,#19251c,#111912);border:1px solid var(--line);border-radius:14px;padding:16px;border-radius:16px}.lead{font-size:16px;color:var(--text)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat,.person,.trade,.entry{background:#0b120d;border:1px solid #243127;border-radius:10px;padding:10px}.stat span{display:block;color:var(--muted);font-size:11px}.stat strong{font-size:20px}.meter{height:9px;background:#243127;border-radius:99px;overflow:hidden}.meter i{display:block;height:100%;background:linear-gradient(90deg,var(--green),#d8f2a8);width:50%}.actions{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:10px}.action{background:#141d17;border:1px solid var(--line);padding:10px 12px;border-radius:10px;color:var(--text);text-align:left;cursor:pointer}.action strong{display:block;font-size:14px}.action small{color:var(--muted)}.btn{background:#171f1a;border:1px solid var(--line);border-radius:10px;padding:9px 12px;color:var(--text);cursor:pointer}.btn.primary{background:var(--green);border-color:var(--green);color:#142114;font-weight:800}.pill{display:inline-flex;align-items:center;padding:6px 10px;background:#1a241d;border:1px solid var(--line);border-radius:999px;font-size:12px}.top-right{display:flex;align-items:center;gap:8px}.feed,.market,.rivals,.family{display:grid;gap:8px}.footer{padding-top:16px;color:#7f8d7f;font-size:12px}.row{display:flex;justify-content:space-between;align-items:center;gap:10px}.small{font-size:12px}.muted{color:var(--muted)}.person b,.trade b,.entry b{display:block}.date{font-size:11px;color:var(--gold)}@media(max-width:760px){.wrap{padding:14px}.grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}.top{align-items:flex-start}.top-right{flex-direction:column;align-items:flex-start}.actions{grid-template-columns:1fr}.tabs{overflow:auto;flex-wrap:nowrap}}@media(max-width:420px){.stats{grid-template-columns:1fr}.pill,.btn{padding:8px 10px}}
   </style>
 </head>
 <body>
@@ -19,7 +17,11 @@
       <div class="top-right"><span class="pill" id="saveStatus">Tersimpan otomatis</span><button class="btn" id="newGame">Mulai ulang</button></div>
     </header>
     <nav class="tabs" aria-label="Menu permainan">
-      <button class="tab" data-tab="dunia" aria-selected="true">Dunia</button><button class="tab" data-tab="keluarga" aria-selected="false">Keluarga</button><button class="tab" data-tab="pasar" aria-selected="false">Pasar</button><button class="tab" data-tab="catatan" aria-selected="false">Catatan</button>
+      <button class="tab" data-tab="dunia" aria-selected="true">Dunia</button>
+      <button class="tab" data-tab="keluarga" aria-selected="false">Keluarga</button>
+      <button class="tab" data-tab="pasar" aria-selected="false">Pasar</button>
+      <button class="tab" data-tab="catatan" aria-selected="false">Catatan</button>
+      <button class="tab" data-tab="populasi" aria-selected="false">Populasi</button>
     </nav>
     <section class="section active" id="dunia">
       <div class="grid">
@@ -27,8 +29,10 @@
           <div class="kicker">Lembah yang tumbuh</div><h2 id="chapter">Sebuah permulaan</h2>
           <p class="lead" id="worldText"></p>
           <div class="stats" id="stats"></div>
-          <div class="row"><span class="muted small">Ketenteraman wilayah</span><strong id="stabilityText">—</strong></div><div class="meter"><i id="stabilityBar"></i></div>
-          <h3 style="margin-top:20px">Pilih tindakan</h3><div id="actions" class="actions"></div>
+          <div class="row"><span class="muted small">Ketenteraman wilayah</span><strong id="stabilityText">—</strong></div>
+          <div class="meter"><i id="stabilityBar"></i></div>
+          <h3 style="margin-top:20px">Pilih tindakan</h3>
+          <div id="actions" class="actions"></div>
           <button class="btn primary" id="advance" style="width:100%;margin-top:12px">Akhiri pekan · Simulasikan dunia</button>
           <p class="muted small">Setiap tindakan memakai satu pekan. Penduduk, persediaan, dan hubungan antarkeluarga berubah seiring waktu.</p>
         </article>
@@ -36,12 +40,13 @@
       </div>
     </section>
     <section class="section" id="keluarga">
-      <div class="grid"><article class="panel"><div class="kicker">Dinasti perintis</div><h2>Keluarga dan pengaruh</h2><p class="muted">Bangun nama keluarga melalui usaha, kepercayaan warga, dan peran di dewan. Gunakan pengaruh dengan bijak.</p><div id="familyStats" class="stats"></div><h3>Tokoh keluarga</h3><div id="people" class="people"></div><div class="actions"><button class="action" data-action="heir"><strong>Didik penerus · 12 emas</strong><small>Tambah pengalaman dan pengaruh keluarga.</small></button><button class="action" data-action="council"><strong>Hadiri dewan · 8 emas</strong><small>Perkuat kepercayaan warga dan ketenteraman.</small></button><button class="action" data-action="alliance"><strong>Jalin persekutuan · 16 emas</strong><small>Bangun hubungan dengan keluarga dagang lain.</small></button><button class="action" data-action="celebrate"><strong>Adakan perayaan · 10 makanan</strong><small>Naikkan semangat warga dan pertumbuhan penduduk.</small></button></div></article><aside class="panel"><div class="kicker">Peringkat keluarga</div><h2>Para pesaing</h2><div id="rivals" class="people"></div><p class="muted small">Peringkat berubah berdasarkan kemakmuran dan pengaruh, bukan hanya jumlah koin.</p></aside></div>
+      <div class="grid"><article class="panel"><div class="kicker">Dinasti perintis</div><h2>Keluarga dan pengaruh</h2><p class="muted">Bangun nama keluarga melalui usaha, kepercayaan warga, dan persekutuan ekonomi.</p><div class="family" id="familyStats"></div><div class="stats" id="people"></div></article><aside class="panel"><div class="kicker">Saingan</div><h2>Rumah-rumah lain</h2><div class="rivals" id="rivals"></div></aside></div>
     </section>
     <section class="section" id="pasar">
-      <div class="grid"><article class="panel"><div class="kicker">Perdagangan daerah</div><h2>Pasar lembah</h2><p class="muted">Harga berfluktuasi sesuai cuaca, panen, dan permintaan. Beli seperlunya; simpanan yang terlalu kecil membuat warga rentan.</p><div id="market" class="people"></div></article><aside class="panel"><div class="kicker">Jaringan usaha</div><h2>Investasi wilayah</h2><div id="investments"></div><p class="muted small">Bangunan memberi hasil tiap pekan, tetapi membutuhkan modal dan perawatan.</p></aside></div>
+      <div class="grid"><article class="panel"><div class="kicker">Perdagangan daerah</div><h2>Pasar lembah</h2><p class="muted">Harga berfluktuasi sesuai cuaca, panen, dan permintaan. Beli seperlunya untuk bertahan atau menambah pengaruh.</p><div class="market" id="market"></div></article><aside class="panel"><div class="kicker">Investasi</div><h2>Pembangunan wilayah</h2><div class="family" id="investments"></div></aside></div>
     </section>
-    <section class="section" id="catatan"><article class="panel"><div class="kicker">Kisah yang tersimpan</div><h2>Riwayat perintisan</h2><p class="muted">Catatan kejadian terbaru akan muncul di sini. Simpanan game tersimpan di perangkat ini saja.</p><div class="feed" id="allFeed"></div></article></section>
+    <section class="section" id="catatan"><article class="panel"><div class="kicker">Kisah yang tersimpan</div><h2>Riwayat perintisan</h2><p class="muted">Catatan kejadian terbaru akan muncul di sini.</p><div class="feed" id="allFeed"></div></article></section>
+    <section class="section" id="populasi"><article class="panel"><div class="kicker">Data warga</div><h2>Populasi setiap ras</h2><p class="muted">Daftar jumlah penduduk di dunia saat ini. Data dibaca dari save browser dan dapat diperbarui kapan pun.</p><div class="stats" id="populationStats"></div></article></section>
     <footer class="footer">Game simulasi teks ringan · disimpan otomatis di browser · semua keluarga dan peristiwa dibuat khusus untuk Dunia.</footer>
   </main>
   <div id="toast" class="toast" hidden></div>
@@ -55,69 +60,102 @@
     {id:'tools',name:'Perkakas',unit:'set',base:11},
     {id:'cloth',name:'Kain',unit:'gulungan',base:8},
   ];
-  const initial=()=>({realm:'Lembah Awal',year:1,week:1,gold:90,food:55,wood:34,tools:12,cloth:8,population:24,stability:66,reputation:12,influence:4,knowledge:0,farms:1,workshops:0,markets:0,alliances:0,heir:0,mood:62,prices:{food:4,wood:6,tools:11,cloth:8},families:[{name:'Keluarga Anda',wealth:90,influence:12,relation:50},{name:'Keluarga Ranu',wealth:66,influence:10,relation:35},{name:'Keluarga Sagara',wealth:52,influence:8,relation:42},{name:'Keluarga Wira',wealth:40,influence:6,relation:30}],log:[{year:1,week:1,text:'Anda tiba di sebuah lembah subur bersama beberapa keluarga perintis. Sebuah permukiman kecil menanti arah.'}]});
+  const initial=()=>({realm:'Lembah Awal',year:1,week:1,gold:90,food:55,wood:34,tools:12,cloth:8,population:24,stability:66,reputation:12,influence:4,knowledge:0,farms:1,workshops:0,markets:0,alliances:0,mood:60,heir:0,log:[],families:[{name:'Keluarga Anda',wealth:90,influence:4,relation:100},{name:'Klan Tangguh',wealth:40,influence:3,relation:54},{name:'Pohon Batu',wealth:58,influence:5,relation:46},{name:'Rumah Laut',wealth:42,influence:2,relation:59}],prices:{food:4,wood:6,tools:11,cloth:8},races:{manusia:[],elf:[],goblin:[],mermaid:[],centaur:[],lamia:[]},hybrids:[],version:1,nextPersonId:1,lamiaPeople:[]});
   let s=load(); let selectedAction='';
   function load(){try{const x=JSON.parse(localStorage.getItem(KEY));return x&&x.version===1?x:initial()}catch{return initial()}}
-  function save(){s.version=1;try{localStorage.setItem(KEY,JSON.stringify(s));document.querySelector('#saveStatus').textContent='Tersimpan otomatis'}catch{document.querySelector('#saveStatus').textContent='Penyimpanan tidak tersedia'}}
+  function save(){s.version=1;try{localStorage.setItem(KEY,JSON.stringify(s));document.querySelector('#saveStatus').textContent='Tersimpan otomatis'}catch{document.querySelector('#saveStatus').textContent='Penyimpanan browser tidak tersedia'}}
   function note(text){s.log.unshift({year:s.year,week:s.week,text});s.log=s.log.slice(0,100)}
   function toast(text){const el=document.querySelector('#toast');el.textContent=text;el.hidden=false;clearTimeout(toast.timer);toast.timer=setTimeout(()=>el.hidden=true,2200)}
   function clamp(n,min=0,max=100){return Math.max(min,Math.min(max,n))}
   function stat(label,value){return `<div class="stat"><span>${label}</span><strong>${value}</strong></div>`}
   function bar(label,value){return `<div class="row"><span>${label}</span><b>${value}</b></div>`}
   function act(id,title,desc){return `<button class="action" data-action="${id}"><strong>${title}</strong><small>${desc}</small></button>`}
+  function setPopulationCounts(){
+    const races=s.races||{};
+    const labels={manusia:'Manusia',elf:'Elf',goblin:'Goblin',mermaid:'Mermaid',centaur:'Centaur',lamia:'Lamia',hybrid:'Hybrid'};
+    const counts={};
+    for(const key of Object.keys(labels)) counts[key]=0;
+    for(const [key,arr] of Object.entries(races)) if(Array.isArray(arr)) counts[key]=arr.length;
+    counts.lamia = (Array.isArray(s.lamiaPeople)?s.lamiaPeople.length:0) + (counts.lamia||0);
+    counts.hybrid = Array.isArray(s.hybrids)?s.hybrids.length:0;
+    const total = Object.values(counts).reduce((sum,v)=>sum+v,0) || 1;
+    const html = Object.entries(labels).map(([id,label]) => {
+      const count = counts[id] || 0;
+      const pct = Math.max(0, Math.round((count / total) * 100));
+      return `<div class="stat"><span>${label}</span><strong>${count}</strong><div class="meter" style="margin-top:8px"><i style="width:${pct}%"></i></div></div>`;
+    }).join('');
+    document.querySelector('#populationStats').innerHTML = html;
+  }
   function render(){
     document.querySelector('#realmName').textContent=s.realm;
     document.querySelector('#seasonLine').textContent=`Tahun ${s.year} · Pekan ${s.week}`;
     document.querySelector('#chapter').textContent=s.population>=100?'Permukiman menjadi kota':s.farms+s.workshops+s.markets>=6?'Jalan-jalan mulai ramai':'Sebuah permulaan';
-    document.querySelector('#worldText').textContent=`Di ${s.realm}, ${s.population} warga membangun kehidupan baru. ${s.farms} ladang, ${s.workshops} bengkel, dan ${s.markets} pasar menopang masa depan. Keluarga Anda memiliki pengaruh ${s.influence}; hubungan antarwarga ${s.stability}%.`;
-    document.querySelector('#stats').innerHTML=stat('Penduduk',s.population)+stat('Emas',s.gold)+stat('Makanan',s.food)+stat('Kayu',s.wood)+stat('Perkakas',s.tools)+stat('Kain',s.cloth)+stat('Reputasi',s.reputation)+stat('Pengetahuan',s.knowledge);
+    document.querySelector('#worldText').textContent=`Di ${s.realm}, ${s.population} warga membangun kehidupan baru. ${s.farms} ladang, ${s.workshops} bengkel, dan ${s.markets} pasar menopang masa depan lembah.`;
+    document.querySelector('#stats').innerHTML=stat('Penduduk',s.population)+stat('Emas',s.gold)+stat('Makanan',s.food)+stat('Kayu',s.wood)+stat('Perkakas',s.tools)+stat('Kain',s.cloth)+stat('Reputasi',s.reputation)+stat('Pengaruh',s.influence)+stat('Pengetahuan',s.knowledge);
     document.querySelector('#stabilityText').textContent=`${s.stability}%`;
     document.querySelector('#stabilityBar').style.width=`${s.stability}%`;
-    document.querySelector('#actions').innerHTML=act('farm','Bangun ladang · 20 kayu','Tambah produksi pangan dan daya tampung warga.')+act('workshop','Bangun bengkel · 18 kayu, 5 perkakas','Bengkel menghasilkan perkakas dan membuka usaha.')+act('market','Bangun pasar · 22 kayu','Pasar memberi pemasukan dan menghidupkan perdagangan.')+act('explore','Jelajahi sekitar · 6 makanan','Cari sumber daya, pengetahuan, atau tempat baru.')+act('harvest','Atur panen · 4 perkakas','Kumpulkan pangan sekarang; hasil panen berikutnya sedikit berkurang.')+act('festival','Pesta panen · 10 makanan','Perkuat semangat dan kepercayaan warga.');
+    document.querySelector('#actions').innerHTML=act('farm','Bangun ladang · 20 kayu','Tambah produksi pangan dan daya tampung warga.')+act('workshop','Bangun bengkel · 18 kayu, 5 perkakas','Menaikkan produksi dan pengetahuan.')+act('market','Bangun pasar · 22 kayu','Meningkatkan arus emas dan hubungan.')+act('explore','Jelajah hutan · 6 makanan','Cari kayu, sumber baru, dan peluang.')+act('harvest','Atur panen · 4 perkakas','Mengubah ladang jadi stok makanan besar.')+act('festival','Adakan festival · 10 makanan','Meningkatkan semangat, reputasi, dan stabilitas.')+act('heir','Didik penerus · 12 emas','Meningkatkan pengetahuan dan pengaruh keluarga.')+act('council','Hadiri dewan · 8 emas','Guna memperkuat reputasi dan stabilitas.');
     const family=[['Kekayaan',s.gold+' emas'],['Pengaruh',s.influence],['Nama baik',s.reputation],['Penerus terdidik',s.heir]];
     document.querySelector('#familyStats').innerHTML=family.map(([a,b])=>stat(a,b)).join('');
-    document.querySelector('#people').innerHTML=`<div class="person"><div><b>${s.heir?'Penerus keluarga':'Anda, sang perintis'}</b><div class="muted small">Kepala keluarga · pengetahuan ${s.knowledge}</div></div><span class="tag">Pengaruh ${s.influence}</span></div><div class="person"><div><b>${s.population} warga lembah</b><div class="muted small">Semangat warga ${s.mood}%</div></div><span class="tag">${s.stability>=55?'Tentram':'Gelisah'}</span></div>`;
+    document.querySelector('#people').innerHTML=`<div class="person"><div><b>${s.heir?'Penerus keluarga':'Anda, sang perintis'}</b><div class="muted small">Kepala keluarga · pengetahuan ${s.knowledge}</div></div></div><div class="person"><div><b>Semangat warga</b><div class="muted small">Mood ${s.mood}</div></div></div>`;
     const rivals=[...s.families].sort((a,b)=>(b.wealth+b.influence*5)-(a.wealth+a.influence*5));
-    document.querySelector('#rivals').innerHTML=rivals.map((f,i)=>`<div class="person"><div><b>${i+1}. ${f.name}</b><div class="muted small">Kekayaan ${f.wealth} · pengaruh ${f.influence}</div></div><span class="tag">Relasi ${f.relation}</span></div>`).join('');
-    document.querySelector('#market').innerHTML=goods.map(g=>`<div class="trade"><div><b>${g.name}</b><div class="muted small">Harga: ${s.prices[g.id]} emas / ${g.unit}</div><div class="muted small">Persediaan: ${s[g.id]}</div></div><div style="display:flex;gap:6px"><button class="btn" data-trade="buy:${g.id}">Beli 5</button><button class="btn" data-trade="sell:${g.id}">Jual 5</button></div></div>`).join('');
+    document.querySelector('#rivals').innerHTML=rivals.map((f,i)=>`<div class="person"><div><b>${i+1}. ${f.name}</b><div class="muted small">Kekayaan ${f.wealth} · pengaruh ${f.influence}</div></div></div>`).join('');
+    document.querySelector('#market').innerHTML=goods.map(g=>`<div class="trade"><div><b>${g.name}</b><div class="muted small">Harga: ${s.prices[g.id]} emas / ${g.unit}</div><div class="row"><button class="btn" data-trade="buy" data-id="${g.id}">Beli</button><button class="btn" data-trade="sell" data-id="${g.id}">Jual</button></div></div></div>`).join('');
     document.querySelector('#investments').innerHTML=bar('Ladang',s.farms)+bar('Bengkel',s.workshops)+bar('Pasar',s.markets)+bar('Persekutuan dagang',s.alliances);
     const recent=s.log.slice(0,18).map(e=>`<div class="entry"><div class="date">Tahun ${e.year} · Pekan ${e.week}</div><p>${escapeHtml(e.text)}</p></div>`).join('');
-    document.querySelector('#feed').innerHTML=recent;document.querySelector('#allFeed').innerHTML=s.log.map(e=>`<div class="entry"><div class="date">Tahun ${e.year} · Pekan ${e.week}</div><p>${escapeHtml(e.text)}</p></div>`).join('');
+    document.querySelector('#feed').innerHTML=recent;
+    document.querySelector('#allFeed').innerHTML=s.log.map(e=>`<div class="entry"><div class="date">Tahun ${e.year} · Pekan ${e.week}</div><p>${escapeHtml(e.text)}</p></div>`).join('') || '<div class="entry"><div class="date">Belum ada</div><p>Catatan perjalanan belum dimulai.</p></div>';
+    setPopulationCounts();
     save();
   }
   function escapeHtml(x){return String(x).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
   function doAction(id){
     if(id==='farm'){if(s.wood<20)return toast('Kayu tidak cukup.');s.wood-=20;s.farms++;s.stability=clamp(s.stability+2);note('Warga mendirikan ladang baru. Persediaan pangan akan bertambah setiap pekan.');}
-    else if(id==='workshop'){if(s.wood<18||s.tools<5)return toast('Butuh 18 kayu dan 5 perkakas.');s.wood-=18;s.tools-=5;s.workshops++;s.knowledge++;note('Sebuah bengkel dibuka. Para pengrajin mulai menghasilkan perkakas untuk warga.');}
+    else if(id==='workshop'){if(s.wood<18||s.tools<5)return toast('Butuh 18 kayu dan 5 perkakas.');s.wood-=18;s.tools-=5;s.workshops++;s.knowledge++;note('Sebuah bengkel dibuka. Para pengrajin mulai menambah kemampuan.');}
     else if(id==='market'){if(s.wood<22)return toast('Kayu tidak cukup.');s.wood-=22;s.markets++;s.reputation=clamp(s.reputation+2);note('Pasar kecil dibuka. Pedagang dari keluarga lain mulai singgah.');}
-    else if(id==='explore'){if(s.food<6)return toast('Makanan tidak cukup untuk perjalanan.');s.food-=6;const r=Math.random();if(r<.34){const n=10+Math.floor(Math.random()*14);s.wood+=n;note(`Rombongan menemukan hutan yang baik dan membawa pulang ${n} ikat kayu.`)}else if(r<.60){s.knowledge+=2;s.reputation=clamp(s.reputation+1);note('Penjelajah bertemu tabib pengembara. Mereka pulang membawa pengetahuan baru.') }else if(r<.82){s.food+=18;note('Mata air dan rumpun buah ditemukan di balik bukit. Persediaan pangan bertambah.') }else{s.influence=clamp(s.influence+3);s.families[1].relation=clamp(s.families[1].relation+5);note('Anda menemukan jalur dagang tua. Keluarga Ranu menghargai kabar itu dan hubungan membaik.')}}
-    else if(id==='harvest'){if(s.tools<4)return toast('Butuh 4 perkakas untuk mengatur panen.');s.tools-=4;const n=12+s.farms*5;s.food+=n;s.mood=clamp(s.mood-2);note(`Panen dipercepat menghasilkan ${n} makanan, tetapi para petani perlu beristirahat.`)}
-    else if(id==='festival'){if(s.food<10)return toast('Butuh 10 makanan.');s.food-=10;s.mood=clamp(s.mood+13);s.reputation=clamp(s.reputation+4);s.stability=clamp(s.stability+4);note('Perayaan panen menyatukan warga dan memperbaiki nama keluarga Anda.')}
-    else if(id==='heir'){if(s.gold<12)return toast('Emas tidak cukup.');s.gold-=12;s.heir++;s.influence=clamp(s.influence+2);s.knowledge++;note('Penerus keluarga mulai belajar membaca catatan usaha dan berunding dengan para pedagang.')}
-    else if(id==='council'){if(s.gold<8)return toast('Emas tidak cukup.');s.gold-=8;s.influence=clamp(s.influence+3);s.reputation=clamp(s.reputation+2);s.stability=clamp(s.stability+3);note('Anda menghadiri dewan lembah. Usulan perbaikan sumur disetujui warga.')}
-    else if(id==='alliance'){if(s.gold<16)return toast('Emas tidak cukup.');s.gold-=16;s.alliances++;s.families[1].relation=clamp(s.families[1].relation+15);s.influence=clamp(s.influence+2);note('Persekutuan dagang dibuat dengan Keluarga Ranu. Hubungan membaik, dan jalur pasar lebih aman.')}
-    else if(id==='celebrate'){if(s.food<10)return toast('Makanan tidak cukup.');s.food-=10;s.mood=clamp(s.mood+10);s.population++;note('Perayaan kecil membuat sebuah keluarga baru menetap di lembah.')}
+    else if(id==='explore'){if(s.food<6)return toast('Makanan tidak cukup untuk perjalanan.');s.food-=6;const r=Math.random();if(r<.34){const n=10+Math.floor(Math.random()*14);s.wood+=n;note(`Rombongan penjelajah menemukan ${n} kayu baru di hutan.`);}else if(r<.68){const n=7+Math.floor(Math.random()*10);s.gold+=n;note(`Peta baru menunjukan jalur barang; penduduk memperoleh ${n} emas.`);}else{const n=5+Math.floor(Math.random()*8);s.tools+=n;note(`Temuan kecil di balik bukit memperkaya set perkakas sebanyak ${n}.`);}}
+    else if(id==='harvest'){if(s.tools<4)return toast('Butuh 4 perkakas untuk mengatur panen.');s.tools-=4;const n=12+s.farms*5;s.food+=n;s.mood=clamp(s.mood-2);note(`Panen dipercepat menghasilkan ${n} makanan.`);}
+    else if(id==='festival'){if(s.food<10)return toast('Butuh 10 makanan.');s.food-=10;s.mood=clamp(s.mood+13);s.reputation=clamp(s.reputation+4);s.stability=clamp(s.stability+4);note('Perayaan besar menguatkan semangat warga dan nama lembah.');}
+    else if(id==='heir'){if(s.gold<12)return toast('Emas tidak cukup.');s.gold-=12;s.heir++;s.influence=clamp(s.influence+2);s.knowledge++;note('Penerus keluarga mulai belajar membaca catatan usaha dan tata hukum.');}
+    else if(id==='council'){if(s.gold<8)return toast('Emas tidak cukup.');s.gold-=8;s.influence=clamp(s.influence+3);s.reputation=clamp(s.reputation+2);s.stability=clamp(s.stability+3);note('Anda menghadiri dewan dan menandai kehadiran keluarga.');}
     else return;
     selectedAction=id;render();toast('Tindakan selesai. Akhiri pekan untuk melanjutkan waktu.');
   }
   function advance(){
     s.week++;if(s.week>52){s.week=1;s.year++;note(`Tahun ${s.year} dimulai. Lembah melihat musim baru.`)}
     const foodMade=s.farms*(5+Math.floor(Math.random()*3));const foodUsed=Math.ceil(s.population/8);
-    s.food+=foodMade-foodUsed;s.gold+=s.markets*(3+Math.floor(Math.random()*3))+s.workshops*2+s.alliances;
-    s.wood+=Math.floor(s.workshops/2);s.tools+=s.workshops;s.mood=clamp(s.mood+(s.food>15?1:-5));
-    if(s.food<0){s.food=0;s.stability=clamp(s.stability-9);s.population=Math.max(5,s.population-2);note('Persediaan pangan habis. Sebagian warga pergi mencari tempat yang lebih aman.')}else if(s.food<10){s.stability=clamp(s.stability-4);note('Persediaan makanan menipis. Warga mulai khawatir akan musim berikutnya.')}
-    else if(s.food>24&&s.stability>40&&Math.random()<.25){s.population++;note('Sebuah keluarga baru menetap di lembah setelah mendengar kabar kemakmuran.')}
-    if(s.markets&&Math.random()<.35){const rival=s.families[1+Math.floor(Math.random()*(s.families.length-1))];rival.wealth+=3+s.markets;}
-    if(Math.random()<.11){const event=Math.random();if(event<.34){s.wood=Math.max(0,s.wood-7);note('Angin kencang merobohkan beberapa pohon dan merusak tumpukan kayu.')}else if(event<.68){s.food+=12;s.mood=clamp(s.mood+3);note('Hujan lembut menyuburkan ladang; panen mendatang tampak menjanjikan.')}else{s.stability=clamp(s.stability-4);s.families[2].relation=clamp(s.families[2].relation-3);note('Perselisihan kecil di pasar membuat hubungan antarkeluarga sedikit renggang.')}}
-    for(const g of goods){const supply=s[g.id];const delta=supply<12?1:supply>50?-1:0;s.prices[g.id]=Math.max(2,Math.min(25,s.prices[g.id]+delta+(Math.random()<.15?(Math.random()<.5?-1:1):0)))}
-    s.stability=clamp(s.stability+(s.mood>70?1:0));s.families[0].wealth=s.gold;s.families[0].influence=s.influence;
-    note(`Pekan ditutup. Ladang menghasilkan ${foodMade} makanan; warga memakai ${foodUsed}.`);render();toast('Dunia bergerak satu pekan.');
+    s.food += foodMade - foodUsed;
+    s.gold += s.markets*(3+Math.floor(Math.random()*3)) + s.workshops*2 + s.alliances;
+    s.wood += Math.floor(s.workshops/2);
+    s.tools += s.workshops;
+    s.mood = clamp(s.mood + (s.food > 15 ? 1 : -5));
+    if(s.food < 0){
+      s.food = 0;
+      s.stability = clamp(s.stability - 9);
+      s.population = Math.max(5, s.population - 2);
+      note('Persediaan pangan habis. Sebagian warga pergi mencari tempat yang lebih aman.');
+    } else if(s.food > 24 && s.stability > 40 && Math.random() < .25){
+      s.population++;
+      note('Sebuah keluarga baru menetap di lembah setelah mendengar kabar kemakmuran.');
+    }
+    if(s.markets && Math.random() < .35){const rival=s.families[1+Math.floor(Math.random()*(s.families.length-1))];rival.wealth += 3 + s.markets;}
+    if(Math.random() < .11){
+      const event=Math.random();
+      if(event < .34){s.wood = Math.max(0, s.wood - 7);note('Angin kencang merobohkan beberapa pohon dan merusak tumpukan kayu.');}
+      else if(event < .68){s.food = Math.max(0, s.food - 9);note('Cuaca tidak menentu menghancurkan panen kecil.');}
+      else {s.stability = clamp(s.stability - 8);note('Kegaduhan antarpenduduk memicu ketegangan di permukiman.');}
+    }
+    for(const g of goods){const supply=s[g.id];const delta=supply<12?1:supply>50?-1:0;s.prices[g.id]=Math.max(2,Math.min(25,s.prices[g.id]+delta+(Math.random() < .15 ? (Math.random() < .5 ? -1 : 1) : 0)))}
+    s.stability = clamp(s.stability + (s.mood > 70 ? 1 : 0));
+    s.families[0].wealth=s.gold;s.families[0].influence=s.influence;
+    note(`Pekan ditutup. Ladang menghasilkan ${foodMade} makanan; warga memakai ${foodUsed}.`);
+    render();toast('Dunia bergerak satu pekan.');
   }
-  function trade(kind,id){const g=goods.find(x=>x.id===id);if(!g)return;const price=s.prices[id]*5;if(kind==='buy'){if(s.gold<price)return toast('Emas tidak cukup.');s.gold-=price;s[id]+=5;note(`Anda membeli 5 ${g.unit} ${g.name.toLowerCase()} seharga ${price} emas.`)}else{if(s[id]<5)return toast(`Persediaan ${g.name.toLowerCase()} kurang dari 5.`);s[id]-=5;s.gold+=price;note(`Anda menjual 5 ${g.unit} ${g.name.toLowerCase()} dan menerima ${price} emas.`)}s.families[0].wealth=s.gold;render();toast(kind==='buy'?'Pembelian selesai.':'Barang terjual.')}
-  document.querySelectorAll('.tab').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',String(x===button)));document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===button.dataset.tab))}));
-  document.addEventListener('click',event=>{const action=event.target.closest('[data-action]');if(action){doAction(action.dataset.action);return}const tradeButton=event.target.closest('[data-trade]');if(tradeButton){const [kind,id]=tradeButton.dataset.trade.split(':');trade(kind,id)}});
+  function trade(kind,id){const g=goods.find(x=>x.id===id);if(!g)return;const price=s.prices[id]*5;if(kind==='buy'){if(s.gold<price)return toast('Emas tidak cukup.');s.gold-=price;s[id]+=5;note(`Beli ${g.name} untuk stok persediaan.`);}else if(kind==='sell'){if(s[id]<5)return toast(`Stok ${g.name} tidak cukup.`);s.gold+=price;s[id]-=5;note(`Jual ${g.name} dari stok ruang penyimpanan.`);}render();}
+  document.querySelectorAll('.tab').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',String(x===button)));document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===button.dataset.tab));}));
+  document.addEventListener('click',event=>{const action=event.target.closest('[data-action]');if(action){doAction(action.dataset.action);return}const tradeButton=event.target.closest('[data-trade]');if(tradeButton){trade(tradeButton.dataset.trade,tradeButton.dataset.id);return}});
   document.querySelector('#advance').addEventListener('click',advance);
-  document.querySelector('#newGame').addEventListener('click',()=>{if(confirm('Mulai dunia baru? Simpanan dunia saat ini akan dihapus dari perangkat ini.')){s=initial();render();toast('Dunia baru dimulai.')}});
+  document.querySelector('#newGame').addEventListener('click',()=>{if(confirm('Mulai dunia baru? Simpanan dunia saat ini akan dihapus dari perangkat ini.')){s=initial();render();toast('Dunia baru dimulai.');}});
   render();
 })();
 </script>
