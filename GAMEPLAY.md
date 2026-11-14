@@ -8,6 +8,7 @@ Game browser berbasis teks yang ringan. Buka `index.html` di browser; tidak ada 
 - Tekan **Akhiri pekan** untuk menjalankan simulasi: kebutuhan pangan, produksi, pertumbuhan warga, perubahan harga, dan kejadian tak terduga.
 - Kembangkan keluarga melalui tab **Keluarga** dengan mendidik penerus, menghadiri dewan, dan membentuk persekutuan.
 - Jual atau beli persediaan di tab **Pasar**.
+- Lihat jumlah tiap ras di `populasi.html`.
 - Kelola pet, ternak, dan tanaman hidup di `pets.html`; beri makan, air, perhatian, dan tempat tinggal sesuai kebutuhan.
 - Atur jam serta kalender Gregorian di `waktu.html`.
 - Kemajuan tersimpan otomatis di `localStorage` browser dengan kunci dunia yang sama.
@@ -24,6 +25,10 @@ Halaman `waktu.html` menyediakan jam dunia dan kalender Masehi/Gregorian yang pe
 - Kalender memiliki 12 bulan dan mengikuti aturan tahun kabisat Gregorian, termasuk pengecualian tahun abad kecuali habis dibagi 400.
 - Pemain dapat menjalankan atau menjeda jam serta memajukan waktu satu jam, satu hari, atau satu pekan.
 - Kalender dimulai pada 1 Januari tahun 1 Masehi (kalender Gregorian proleptik).
+
+## Populasi
+
+Halaman `populasi.html` membaca save dunia di browser dan menampilkan jumlah manusia, elf, goblin, mermaid, centaur, Lamia, serta hybrid secara terpisah. Data dapat diperbarui manual, otomatis berkala, atau saat save berubah di tab lain. Halaman ini hanya membaca data dan tidak mengubah save.
 
 ## Pet, ternak, dan tanaman hidup
 
