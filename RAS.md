@@ -18,6 +18,7 @@ Skala kecerdasan memakai angka 1–5, dengan 1 paling cerdas:
 - **Goblin:** terbiasa tinggal di gua bawah tanah dan daerah sekitarnya; telinganya meruncing seperti telinga elf.
 - **Mermaid:** hidup di sungai, pantai, teluk, dan laguna. Permukiman mereka menyesuaikan diri dengan aliran air tawar maupun pesisir.
 - **Centaur:** hidup di hutan dan padang rumput di tepi hutan; mereka menggunakan jalur terbuka antara pepohonan dan padang untuk bepergian.
+- **Semua ras:** memakai baju. Detail model pakaian bergantung pada budaya, iklim, dan fungsi; manusia memakai pakaian sehari-hari, elf menyesuaikan dengan hutan, mermaid memakai pakaian yang ringan dan mudah bergerak di air, centaur memakai mantel atau pelindung tubuh yang cocok untuk perjalanan, sedangkan goblin memakai bahan sederhana yang praktis untuk gua dan kerja lapangan.
 
 ## Pasangan dan keturunan
 
